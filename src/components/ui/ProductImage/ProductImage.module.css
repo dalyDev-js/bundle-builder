@@ -1,0 +1,33 @@
+.wrap {
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  border-radius: var(--r-sm);
+  background: #fff;
+}
+
+.wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.placeholder {
+  background: linear-gradient(135deg, #eef0f5, #e2e6ef);
+  position: relative;
+}
+
+.placeholder::after {
+  content: "";
+  width: 40%;
+  height: 40%;
+  border-radius: 8px;
+  background: repeating-linear-gradient(
+    45deg,
+    #d3d8e4,
+    #d3d8e4 6px,
+    #c7cdda 6px,
+    #c7cdda 12px
+  );
+  opacity: 0.55;
+}

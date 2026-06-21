@@ -1,0 +1,88 @@
+.page {
+  max-width: var(--content-max);
+  margin: 0 auto;
+  padding: var(--s-6) var(--s-5) var(--s-10);
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) var(--review-width);
+  gap: var(--s-6);
+  align-items: start;
+}
+
+.builderCol {
+  min-width: 0;
+}
+
+.pageTitle {
+  font-size: 2.4rem;
+  text-align: center;
+  margin: var(--s-4) 0 var(--s-5);
+}
+
+.reviewCol {
+  position: sticky;
+  top: var(--s-6);
+}
+
+.loading {
+  grid-column: 1 / -1;
+  min-height: 50vh;
+  display: grid;
+  place-items: center;
+  color: var(--c-text-muted);
+}
+
+/* Single column below desktop: review panel drops under the builder. */
+@media (max-width: 1023px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .reviewCol {
+    position: static;
+  }
+}
+
+/* The big page title only appears on smaller screens in the design; keep it
+   accessible (not removed) on desktop where the hero starts at Step 1. */
+@media (min-width: 1024px) {
+  .pageTitle {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+}
+
+/* Large desktop follows the full-width Figma: builder first, review below. */
+@media (min-width: 1440px) {
+  .page {
+    max-width: 1600px;
+  }
+
+  .layout {
+    grid-template-columns: 1fr;
+    gap: var(--s-8);
+  }
+
+  .reviewCol {
+    position: static;
+  }
+}
+
+@media (max-width: 767px) {
+  .page {
+    padding: var(--s-4) var(--s-3) var(--s-8);
+  }
+
+  .pageTitle {
+    font-size: 1.9rem;
+  }
+}

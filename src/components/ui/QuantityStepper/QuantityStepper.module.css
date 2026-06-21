@@ -1,0 +1,58 @@
+.stepper {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+}
+
+.btn {
+  display: grid;
+  place-items: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  background: var(--c-stepper-bg);
+  border: 1px solid transparent;
+  color: var(--c-text);
+  transition:
+    background 0.15s ease,
+    border-color 0.15s ease,
+    color 0.15s ease;
+}
+
+.btn:hover:not(:disabled) {
+  background: var(--c-primary-weak);
+  border-color: var(--c-primary-weak);
+  color: var(--c-primary);
+}
+
+.btn:disabled {
+  border-color: var(--c-stepper-border);
+  color: var(--c-text-subtle);
+  background: #fff;
+  cursor: not-allowed;
+}
+
+.value {
+  min-width: 22px;
+  text-align: center;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.sm .btn {
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  background: #fff;
+  color: #575757;
+}
+
+.sm .btn:hover:not(:disabled),
+.sm .btn:disabled {
+  background: #fff;
+  color: #575757;
+}
+
+.sm .value {
+  min-width: 18px;
+}
